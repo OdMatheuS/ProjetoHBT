@@ -9,7 +9,7 @@ import { UserModel } from './user-model';
 })
 export class UserListComponent implements OnInit {
   users: UserModel[] = [];
-
+  first_name: string;
   selectedUserCountRadioButton: string = 'All';
 
   ngOnInit() {
@@ -830,5 +830,13 @@ export class UserListComponent implements OnInit {
   }
   onUserCountRadioButtonChange(selectedRadioButtonValue: string): void {
     this.selectedUserCountRadioButton = selectedRadioButtonValue;
+  }
+  Search() {
+    this.users = this.users.filter(res => {
+      return res.first_name.toLowerCase().match(this.first_name.toLowerCase())
+    })
+    if (!this.first_name) {
+      return this.ngOnInit()
+    }
   }
 }

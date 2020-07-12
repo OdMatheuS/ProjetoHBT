@@ -1,3 +1,10 @@
+<br>
+<input class="form-control form-control-sm ml-1 w-25" type="text" placeholder="Search" aria-label="Search"
+  [(ngModel)]="first_name" (input)="Search()">
+<form class="form-inline d-flex justify-content-center md-form form-sm mt-0">
+</form>
+<br>
+
 <app-user-count [all]="getTotalUsersCount() " [male]="getMaleUsersCount()" [female]="getFemaleUsersCount()"
   (countRadioButtonSelectionChanged)="onUserCountRadioButtonChange($event)">
 </app-user-count>
@@ -14,6 +21,7 @@
       <th scope="col">IP-Address</th>
     </tr>
   </thead>
+
   <tbody>
     <ng-container *ngFor="let user of users;">
       <tr *ngIf="selectedUserCountRadioButton=='All' || selectedUserCountRadioButton==user.gender">
@@ -25,5 +33,11 @@
         <td scope="row">{{user.ip_address}}</td>
       </tr>
     </ng-container>
+
+    <tr *ngIf="!users || users.length==0">
+      <td colspan="10">
+        No Users to display
+      </td>
+    </tr>
   </tbody>
 </table>
