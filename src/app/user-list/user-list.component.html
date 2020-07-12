@@ -1,1 +1,24 @@
-<p>user-list works!</p>
+<table class="table table-striped">
+  <thead class="thead-dark">
+    <tr>
+      <th scope="col">ID</th>
+      <th scope="col">First Name</th>
+      <th scope="col">Last Name</th>
+      <th scope="col">E-mail</th>
+      <th scope="col">Gender</th>
+      <th scope="col">IP-Address</th>
+    </tr>
+  </thead>
+  <tbody>
+    <ng-container *ngFor="let user of users;">
+      <tr>
+        <td scope="row">{{user.id }}</td>
+        <td scope="row">{{user.first_name }}</td>
+        <td scope="row">{{user.last_name }}</td>
+        <td scope="row">{{user.email }}</td>
+        <td scope="row">{{user.gender}}</td>
+        <td scope="row">{{user.ip_address}}</td>
+      </tr>
+    </ng-container>
+  </tbody>
+</table>
