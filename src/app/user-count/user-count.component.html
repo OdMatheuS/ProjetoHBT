@@ -1,1 +1,13 @@
-<p>user-count works!</p>
+<span class="radioClass">Show : </span>
+
+<input name='options' type='radio' value="All" [(ngModel)]="selectedRadioButtonValue"
+  (change)="onRadioButtonSelectionChange()">
+<span class="radioClass">{{'All(' + all + ')'}}</span>
+
+<input name="options" type="radio" value="Male" [(ngModel)]="selectedRadioButtonValue"
+  (change)="onRadioButtonSelectionChange()">
+<span class="radioClass">{{"Male(" + male + ")"}}<i style="font-size:21px" class="fa">&#xf222;</i></span>
+
+<input name="options" type="radio" value="Female" [(ngModel)]="selectedRadioButtonValue"
+  (change)="onRadioButtonSelectionChange()">
+<span class="radioClass">{{"Female(" + female + ")"}} <i style="font-size:21px" class="fa">&#xf221;</i></span>

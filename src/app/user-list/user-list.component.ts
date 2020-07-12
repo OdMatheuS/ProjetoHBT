@@ -10,6 +10,8 @@ import { UserModel } from './user-model';
 export class UserListComponent implements OnInit {
   users: UserModel[] = [];
 
+  selectedUserCountRadioButton: string = 'All';
+
   ngOnInit() {
 
     this.users = [
@@ -814,5 +816,19 @@ export class UserListComponent implements OnInit {
         ip_address: "38.132.162.246"
       }
     ];
+  }
+  getTotalUsersCount(): number {
+    return this.users.length;
+  }
+
+  getMaleUsersCount(): number {
+    return this.users.filter(std => std.gender === 'Male').length;
+  }
+
+  getFemaleUsersCount(): number {
+    return this.users.filter(std => std.gender === 'Female').length;
+  }
+  onUserCountRadioButtonChange(selectedRadioButtonValue: string): void {
+    this.selectedUserCountRadioButton = selectedRadioButtonValue;
   }
 }

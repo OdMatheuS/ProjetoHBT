@@ -1,3 +1,8 @@
+<app-user-count [all]="getTotalUsersCount() " [male]="getMaleUsersCount()" [female]="getFemaleUsersCount()"
+  (countRadioButtonSelectionChanged)="onUserCountRadioButtonChange($event)">
+</app-user-count>
+
+<br>
 <table class="table table-striped">
   <thead class="thead-dark">
     <tr>
@@ -11,7 +16,7 @@
   </thead>
   <tbody>
     <ng-container *ngFor="let user of users;">
-      <tr>
+      <tr *ngIf="selectedUserCountRadioButton=='All' || selectedUserCountRadioButton==user.gender">
         <td scope="row">{{user.id }}</td>
         <td scope="row">{{user.first_name }}</td>
         <td scope="row">{{user.last_name }}</td>
