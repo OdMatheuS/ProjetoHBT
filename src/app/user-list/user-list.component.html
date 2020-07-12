@@ -1,8 +1,6 @@
 <br>
-<input class="form-control form-control-sm ml-1 w-25" type="text" placeholder="Search" aria-label="Search"
-  [(ngModel)]="first_name" (input)="Search()">
-<form class="form-inline d-flex justify-content-center md-form form-sm mt-0">
-</form>
+<input class="form-control form-control-sm ml-0 w-25" type="text" placeholder="Search by user's First Name"
+  aria-label="Search" [(ngModel)]="first_name" (input)="Search()">
 <br>
 
 <app-user-count [all]="getTotalUsersCount() " [male]="getMaleUsersCount()" [female]="getFemaleUsersCount()"
